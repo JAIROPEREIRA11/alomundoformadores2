@@ -2,8 +2,8 @@
 const lista = document.querySelector("#lista");
 const linguagens = ["JavaScript", "Python", "Java", "C++", "Ruby"];
 
-// Exibe o primeiro item da lista (o que já estava no seu código)
-lista.textContent = linguagens[0]; // Apenas para referência, se necessário
+// Exibe o primeiro item da lista
+lista.textContent = linguagens[0];
 
 // Agora, vamos exibir todos os itens da lista com um loop
 for (let i = 0; i < linguagens.length; i++) {
@@ -17,15 +17,26 @@ let aluno1 = {
   nome: "Jairo",
   idade: 39,
   anoLetivo: "Universidade",
-  materiasFavoritas: ["Matematica","Programação","Arte"]
+  materiasFavoritas: ["Matematica", "Programação", "Arte"]
 }
 
-// Exibindo as informações do aluno1 no console
-console.log(aluno1.nome); 
-console.log(aluno1.idade);
-console.log(aluno1.materiasFavoritas);
-console.log(aluno1.materiasFavoritas[1]);
+// Selecionando o elemento HTML onde as informações serão mostradas
+const alunoInfo = document.querySelector("#aluno");
 
-// Atualizando o conteúdo HTML com o nome do aluno
-const objeto = document.querySelector("#aluno");
-objeto.textContent = aluno1.nome;
+// Exibindo o nome do aluno
+alunoInfo.textContent = `Nome: ${aluno1.nome}`;
+
+// Adicionando a idade do aluno
+const idadeInfo = document.createElement("p");
+idadeInfo.textContent = `Idade: ${aluno1.idade}`;
+alunoInfo.appendChild(idadeInfo);
+
+// Adicionando o ano letivo
+const anoLetivoInfo = document.createElement("p");
+anoLetivoInfo.textContent = `Ano Letivo: ${aluno1.anoLetivo}`;
+alunoInfo.appendChild(anoLetivoInfo);
+
+// Adicionando as matérias favoritas
+const materiasInfo = document.createElement("p");
+materiasInfo.textContent = `Matérias Favoritas: ${aluno1.materiasFavoritas.join(", ")}`;
+alunoInfo.appendChild(materiasInfo);
