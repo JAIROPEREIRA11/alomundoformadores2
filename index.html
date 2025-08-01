@@ -1,35 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
+// Definindo a lista de linguagens
+const lista = document.querySelector("#lista");
+const linguagens = ["JavaScript", "Python", "Java", "C++", "Ruby"];
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+// Exibe o primeiro item da lista
+lista.textContent = linguagens[0];
 
-<body>
-    <header>
-        <h1>Hello World</h1>
-        <p>Que bom ter você por aqui, <span id="nome-usuario">Usuário</span></p>
-    </header>
+// Agora, vamos exibir todos os itens da lista com um loop
+for (let i = 0; i < linguagens.length; i++) {
+    const item = document.createElement("li"); // Criando um novo item de lista <li>
+    item.textContent = linguagens[i]; // Atribuindo o nome da linguagem ao texto do item
+    lista.appendChild(item); // Adicionando o item à lista
+}
 
-    <section>
-        <h2>HTML</h2>
-        <p class="texto-ingles">Hypertext Markup Language (em português, Linguagem de Marcação de hipertexto)estrutura sua pagina.</p>
-        <h2>CSS</h2>
-        <p>Cascading Style Sheets (em português, Folha de Estilo em Cascata).
-        </p>
-        <h2>Outras linguagens</h2>
-        <li id="lista">Lista</li>
-        <h2>Alunos</h2>
-        <li id="aluno"></li>
-        <img src="img/Olá Mundo.png" alt="imagem DOCTYPE um globo mundi com o titulo Hello World">
-    </section>
-    <footer>
-        <p>Uma página desenvolvida por Alura Start</p>
-    </footer>
-    <script src="script.js"></script>
-</body>
+// Definindo um objeto aluno1
+let aluno1 = {
+  nome: "Jairo",
+  idade: 39,
+  anoLetivo: "Universidade",
+  materiasFavoritas: ["Matematica", "Programação", "Arte"]
+}
 
-</html>
+// Selecionando o elemento HTML onde as informações serão mostradas
+const alunoInfo = document.querySelector("#aluno");
+
+// Exibindo o nome do aluno
+alunoInfo.textContent = `Nome: ${aluno1.nome}`;
+
+// Adicionando a idade do aluno
+const idadeInfo = document.createElement("p");
+idadeInfo.textContent = `Idade: ${aluno1.idade}`;
+alunoInfo.appendChild(idadeInfo);
+
+// Adicionando o ano letivo
+const anoLetivoInfo = document.createElement("p");
+anoLetivoInfo.textContent = `Ano Letivo: ${aluno1.anoLetivo}`;
+alunoInfo.appendChild(anoLetivoInfo);
+
+// Adicionando as matérias favoritas
+const materiasInfo = document.createElement("p");
+materiasInfo.textContent = `Matérias Favoritas: ${aluno1.materiasFavoritas.join(", ")}`;
+alunoInfo.appendChild(materiasInfo);
